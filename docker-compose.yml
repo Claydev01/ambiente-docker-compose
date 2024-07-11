@@ -1,0 +1,22 @@
+version: "3"
+services: 
+  project01:
+    container_name: project01
+    hostname: project01
+    image: mysql
+    restart: always
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --innodb_force_recovery=0
+    volumes: 
+      - ~/.bd/project01:/var/lib/mysql
+    ports:
+      - 3308:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: adm1234
+      MYSQL_DATABASE: base_de_dadosADM
+      MYSQL_USER: ADM
+      MYSQL_PASSWORD: adm1234
+      TZ: America/Sao_Paulo
